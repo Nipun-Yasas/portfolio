@@ -2,7 +2,7 @@
 
 import React , { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
-import styles from '../ProfileCard.module.css';
+import styles from '../_styles/ProfileCard.module.css';
 
 interface ProfileCardProps {
   avatarUrl: string;

@@ -20,7 +20,7 @@ export interface PillNavProps {
   pillColor?: string;
   hoveredPillTextColor?: string;
   pillTextColor?: string;
-  onMobileMenuClick?: () => void; // unused
+  onMobileMenuClick?: () => void; 
   initialLoadAnimation?: boolean;
 }
 
@@ -29,15 +29,14 @@ const PillNav: React.FC<PillNavProps> = ({
   activeHref,
   className = '',
   ease = 'power3.easeOut',
-  baseColor = '#fff',
-  pillColor = '#060010',
-  hoveredPillTextColor = '#060010',
+  baseColor = '',
+  pillColor = '',
+  hoveredPillTextColor = '',
   pillTextColor,
   initialLoadAnimation = true
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
 
-  // Refs for desktop pill hover animation
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const tlRefs = useRef<Array<gsap.core.Timeline | null>>([]);
   const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
@@ -171,7 +170,7 @@ const PillNav: React.FC<PillNavProps> = ({
           className="relative items-center rounded-full hidden min-[900px]:flex"
           style={{
             height: 'var(--nav-h)',
-            background: '#060010'
+            background: 'transparent'
           }}
         >
           <ul
@@ -180,10 +179,9 @@ const PillNav: React.FC<PillNavProps> = ({
             style={{ gap: 'var(--pill-gap)' }}
           >
             {items.map((item, i) => {
-              const isActive = activeHref === item.href;
 
               const pillStyle: React.CSSProperties = {
-                background: '#6a37fb',
+                background: 'var(--pill-bg)',
                 color: 'white',
                 paddingLeft: 'var(--pill-pad-x)',
                 paddingRight: 'var(--pill-pad-x)'
@@ -194,7 +192,7 @@ const PillNav: React.FC<PillNavProps> = ({
                   <span
                     className="hover-circle absolute left-1/2 bottom-0 rounded-full z-[1] block pointer-events-none"
                     style={{
-                      background: 'var(--base, #000)',
+                      background: 'var(--base)',
                       willChange: 'transform'
                     }}
                     aria-hidden="true"
@@ -202,7 +200,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       circleRefs.current[i] = el;
                     }}
                   />
-                  <span className="label-stack relative inline-block leading-[1] z-[2]">
+                  <span className="label-stack relative inline-block leading-[1] z-[2] p-1">
                     <span
                       className="pill-label relative z-[2] inline-block leading-[1]"
                       style={{ willChange: 'transform' }}
@@ -210,9 +208,9 @@ const PillNav: React.FC<PillNavProps> = ({
                       {item.label}
                     </span>
                     <span
-                      className="pill-label-hover absolute left-0 top-0 z-[3] inline-block"
+                      className="pill-label-hover absolute left-0 top-0 z-[3] inline-block p-1"
                       style={{
-                        color: 'var(--hover-text, #fff)',
+                        color: 'var(--hover-text)',
                         willChange: 'transform, opacity'
                       }}
                       aria-hidden="true"
@@ -220,23 +218,17 @@ const PillNav: React.FC<PillNavProps> = ({
                       {item.label}
                     </span>
                   </span>
-                  {isActive && (
-                    <span
-                      className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 w-3 h-3 rounded-full z-[4]"
-                      style={{ background: 'var(--base, #000)' }}
-                      aria-hidden="true"
-                    />
-                  )}
+                  
                 </>
               );
 
               const basePillClasses =
-                'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0';
+                'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer p-2';
 
               return (
-                <li key={item.href} role="none" className="flex h-full px-2">
+                <li key={item.href} role="none" className="flex h-full px-3 ">
                   {isRouterLink(item.href) ? (
-                    <Link
+                    <Link 
                       role="menuitem"
                       href={item.href}
                       className={basePillClasses}
