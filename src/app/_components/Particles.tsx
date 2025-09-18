@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+"use client";
+
+import { useEffect, useRef } from 'react';
 import { Renderer, Camera, Geometry, Program, Mesh } from 'ogl';
 
 interface ParticlesProps {

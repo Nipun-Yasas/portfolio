@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function LayoutTextFlip({
@@ -32,7 +33,8 @@ export default function LayoutTextFlip({
 
       <motion.span
         layout
-        className="relative w-full overflow-hidden rounded-md border border-transparent px-2 py-1 font-sans sm:text-3xl md:text-4xl font-bold">
+        className="relative w-full overflow-hidden rounded-md border border-transparent px-2 py-1 font-sans sm:text-3xl md:text-4xl font-bold"
+      >
         <AnimatePresence mode="popLayout">
           <motion.span
             key={currentIndex}
@@ -53,4 +55,4 @@ export default function LayoutTextFlip({
       </motion.span>
     </>
   );
-};
+}

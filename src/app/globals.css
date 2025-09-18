@@ -6,16 +6,28 @@
   --foreground: #f5f5fa;
 }
 
+@theme inline {
+  --animate-move: move 5s linear infinite;
+
+  @keyframes move {
+    0% {
+      transform: translateX(-200px);
+    }
+    100% {
+      transform: translateX(200px);
+    }
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
 }
 
-/* Hide scrollbar (visual only) */
 html {
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }
 
 html::-webkit-scrollbar {
-  display: none; /* Chrome / Edge / Safari */
+  display: none; 
 }
