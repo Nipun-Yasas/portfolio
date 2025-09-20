@@ -35,7 +35,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-bgcolor font-sans "
       ref={containerRef}
     >
-      <div className=" mx-auto  ">
+      <div className=" mx-auto ">
         <h2 className="text-[clamp(1.6rem,4vw,2.6rem)] font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent ">
           Education
         </h2>
@@ -46,7 +46,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           <div key={index} className="flex justify-start pt-10">
             <div className="sticky flex flex-col z-40 items-start top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center">
-                <div className="h-4 w-4 rounded-full bg-gradient-to-br from-fuchsia-500 via-purple-500 to-indigo-500 shadow-[0_0_0_4px_rgba(255,255,255,0.05)] border border-neutral-300 dark:border-neutral-700 p-2" />
+                <div className="h-4 w-4 rounded-full bg-gradient-to-br from-fuchsia-500 via-purple-500 to-indigo-500 shadow-[0_0_0_4px_rgba(255,255,255,0.05)] border border-neutral-700 p-2" />
               </div>
               <div className="hidden md:flex flex-col gap-1 md:pl-20">
                 <h3 className="text-xl md:text-3xl font-bold text-neutral-500">
