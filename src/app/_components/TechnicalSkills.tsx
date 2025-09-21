@@ -200,7 +200,7 @@ export function TechnicalSkills() {
         <Tabs
           tabs={tabs}
           containerClassName="gap-2 overflow-x-auto no-scrollbar"
-          contentClassName="rounded-2xl  overflow-hidden"
+          contentClassName="rounded-2xl overflow-hidden"
         />
       </div>
     </div>

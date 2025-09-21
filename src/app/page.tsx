@@ -6,6 +6,7 @@ import Hero from "./_components/Hero";
 import EducationTimeLine from "./_components/EducationTimeLine";
 import { TechnicalSkills } from "./_components/TechnicalSkills";
 import Logos from "./_components/Logos";
+import {Contact} from "./_components/Contact"
 
 export default function Page() {
   return (
@@ -17,6 +18,7 @@ export default function Page() {
       <EducationTimeLine />
       <TechnicalSkills />
       <Logos />
+      <Contact/>
     </>
   );
 }
