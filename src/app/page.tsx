@@ -7,18 +7,22 @@ import EducationTimeLine from "./_components/EducationTimeLine";
 import { TechnicalSkills } from "./_components/TechnicalSkills";
 import Logos from "./_components/Logos";
 import {Contact} from "./_components/Contact"
+import Projects from "./_components/Projects";
+import Footer from "./_components/Footer";
 
 export default function Page() {
   return (
     <>
+    <ScrollProgressBar/>
       <Nav />
-      <ScrollProgressBar />
 
       <Hero />
       <EducationTimeLine />
       <TechnicalSkills />
       <Logos />
+      <Projects />
       <Contact/>
+      <Footer />
     </>
   );
 }
