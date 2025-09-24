@@ -39,7 +39,7 @@ const FloatingDockMobile = ({
 
   return (
     <div
-      className={`block md:hidden ${className || ""}`}
+      className={`block md:hidden bg-transparent ${className || ""}`}
       aria-label="Mobile navigation"
     >
       <AnimatePresence>
@@ -55,7 +55,7 @@ const FloatingDockMobile = ({
               <motion.a
                 key={item.title}
                 href={item.href}
-                className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-[#0d0d18]/80 backdrop-blur-md border border-white/10 shadow-lg shadow-black/40 hover:border-purple-400/40 transition-colors"
+                className="group relative flex h-12 w-12 items-center justify-center rounded-full backdrop-blur-md border border-white/10 shadow-lg shadow-black/40 hover:border-purple-400/40 transition-colors"
                 initial={{ opacity: 0, y: 10, scale: 0.85 }}
                 animate={{
                   opacity: 1,
@@ -109,7 +109,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       aria-label="Primary navigation"
-      className={`hidden md:flex h-20 items-start gap-5 rounded-2xl bg-[#0f0c1c]/70 backdrop-blur-xl px-6 pt-5 pb-4 border border-white/10 ${className || ""}`}
+      className={`bg-transparent hidden md:flex h-20 items-start gap-5 px-6 pt-5 pb-4 ${className || ""}`}
     >
       {items.map((item) => (
         <IconContainer mouseX={mouseX} key={item.title} {...item} />

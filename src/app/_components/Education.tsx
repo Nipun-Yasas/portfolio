@@ -1,7 +1,9 @@
 import { Timeline } from "./helper/Timeline";
 import { EducationCard } from "./EducationCard";
+import Hyperspeed from "./helper/Hyperspeed";
+import LightRays from "./helper/LightRays";
 
-export default function EducationTimeLine() {
+export default function Education() {
   const data = [
     {
       title: "Higher Education",
@@ -39,14 +41,24 @@ export default function EducationTimeLine() {
   ];
 
   return (
-    <section id="education" className="relative w-full py-10 sm:py-20">
-      <div className="mx-auto max-w-8xl pl-4">
+    <section id="#about" className="relative w-full ">
+      <div className="absolute overflow-hidden inset-0 w-full h-full pointer-events-none">
+         <LightRays
+          raysOrigin="left"
+          raysColor="#00ffff"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="custom-rays"
+        />
+        </div>
+      <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row sm:gap-0 lg:gap-2 xl:gap-10">
-          <div className="hidden md:flex flex-col flex-none w-[250px] lg:w-[400px] xl:w-[500px] transition-[width]">
-            <div className="md:scale-[0.8] lg:scale-[0.9] xl:scale-100 origin-top-left">
-              <EducationCard />
-            </div>
-          </div>
+          
           <div className="flex-1 min-w-0">
             <Timeline data={data} />
           </div>

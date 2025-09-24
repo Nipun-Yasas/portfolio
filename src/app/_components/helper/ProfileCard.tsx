@@ -1,8 +1,8 @@
 "use client";
 
-import React , { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
-import styles from '../_styles/ProfileCard.module.css';
+import styles from '../../_styles/ProfileCard.module.css';
 
 interface ProfileCardProps {
   avatarUrl: string;
@@ -290,7 +290,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       style={cardStyle}
     >
       <section ref={cardRef} className={styles['pc-card']}>
-        <div className={styles['pc-inside'] }>
+        <div className={styles['pc-inside']}>
           <div className={styles['pc-shine']} />
           <div className={styles['pc-glare']} />
           <div className={`${styles['pc-content']} ${styles['pc-avatar-content']}`}>

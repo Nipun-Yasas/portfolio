@@ -3,7 +3,7 @@
 import Nav from "./_components/Nav";
 import ScrollProgressBar from "./_components/ScrollProgressBar";
 import Hero from "./_components/Hero";
-import EducationTimeLine from "./_components/EducationTimeLine";
+import Education from "./_components/Education";
 import { TechnicalSkills } from "./_components/TechnicalSkills";
 import Logos from "./_components/Logos";
 import {Contact} from "./_components/Contact"
@@ -14,10 +14,9 @@ export default function Page() {
   return (
     <>
     <ScrollProgressBar/>
-      <Nav />
 
       <Hero />
-      <EducationTimeLine />
+      <Education />
       <TechnicalSkills />
       <Logos />
       <Projects />
