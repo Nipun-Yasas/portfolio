@@ -5,7 +5,7 @@ export type SkillItem = {
   title: string;
 };
 
-export function SkillCards({ items = [] }: { items: SkillItem[]}) {
+export default function SkillCards({ items = [] }: { items: SkillItem[]}) {
   return (
     <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
       {items.map((item) => (

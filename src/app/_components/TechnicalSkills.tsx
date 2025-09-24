@@ -1,5 +1,5 @@
-import { Tabs } from "./helper/Tabs";
-import { SkillCards } from "./helper/SkillCards";
+import Tabs from "./helper/Tabs";
+import SkillCards from "./helper/SkillCards";
 
 import {
   SiReact,
@@ -119,7 +119,7 @@ const others = [
   { node: <SiPostman />, title: "Postman" },
 ];
 
-export function TechnicalSkills() {
+export default function TechnicalSkills() {
   const tabs = [
     {
       title: "Frontend",
@@ -143,7 +143,7 @@ export function TechnicalSkills() {
       title: "Database",
       value: "database",
       content: (
-       <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-gradient-to-br from-purple-700 to-violet-900">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-gradient-to-br from-purple-700 to-violet-900">
           <SkillCards items={database} />
         </div>
       ),
@@ -189,10 +189,10 @@ export function TechnicalSkills() {
   return (
     <div
       id="#technicalskills"
-      className="w-full font-sans py-10 px-5 md:px-10 lg:px-20"
+      className="w-full font-sans py-10 max-w-8xl px-4 sm:px-6 lg:px-8"
     >
       <div className="mx-auto">
-        <h2 className="text-[clamp(1.6rem,4vw,2.6rem)] mb-5 font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent ">
+        <h2 className="text-[clamp(1.6rem,4vw,2.6rem)] mb-8 font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent ">
           Technical Skills
         </h2>
       </div>

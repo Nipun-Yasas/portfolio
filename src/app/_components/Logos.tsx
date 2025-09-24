@@ -108,9 +108,8 @@ const logos = [
 
 export default function Logos() {
   return (
-    <div className="w-full py-10 sm:py-5 md:py-8 lg:py-8 bg-gradient-to-b from-[#060010] to-[#0d001f]">
-
-    <LogoLoop
+    <div className="w-full py-10 sm:py-5 md:py-8 lg:py-8 ">
+      <LogoLoop
         logos={logos}
         speed={120}
         direction="left"
@@ -122,6 +121,6 @@ export default function Logos() {
         fadeOutColor="#060010"
         ariaLabel="Technology partners"
       />
-      </div>
+    </div>
   )
 }

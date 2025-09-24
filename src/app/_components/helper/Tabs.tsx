@@ -9,7 +9,7 @@ type Tab = {
   content?: string | React.ReactNode | any;
 };
 
-export const Tabs = ({
+export default function Tabs({
   tabs: propTabs,
   containerClassName,
   activeTabClassName,
@@ -21,7 +21,7 @@ export const Tabs = ({
   activeTabClassName?: string;
   tabClassName?: string;
   contentClassName?: string;
-}) => {
+}){
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [tabs, setTabs] = useState<Tab[]>(propTabs);
 
