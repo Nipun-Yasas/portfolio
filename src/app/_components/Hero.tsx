@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import Hyperspeed from "./helper/Hyperspeed";
 import Nav from "./Nav";
 import SplitText from "./SplitText";
-import TextReveal from "./helper/TextReveal";
 import LayoutTextFlip from "./helper/LayoutTextFlip";
 import Stats from "./helper/Stats";
 import Button from "./helper/Button";
@@ -11,7 +10,7 @@ import ProfileCard from "./helper/ProfileCard";
 
 export default function Hero() {
   return (
-    <section id="#about" className="relative w-full ">
+    <section id="about" className="relative w-full ">
       <div className="absolute overflow-hidden inset-0 w-full h-full pointer-events-none">
         <Hyperspeed
           effectOptions={{
@@ -60,24 +59,17 @@ export default function Hero() {
             <div className="w-full max-w-2xl">
               <SplitText
                 text="Hello, I'm Nipun!"
-                className=" block md:hidden text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-tight tracking-tight"
-                delay={100}
-                duration={0.6}
+                className=" text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-tight tracking-tight"
+                delay={50}
+                duration={0.8}
                 ease="power3.out"
                 splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-120px"
+                from={{ opacity: 0, y: 50, scale: 0.8 }}
+                to={{ opacity: 1, y: 0, scale: 1 }}
+                threshold={0.3}
+                rootMargin="-50px"
                 textAlign="left"
               />
-
-              <TextReveal
-                text="Hello I'm Nipun Yasas"
-                revealText="Wanna work with me?"
-                className="hidden md:block"
-              ></TextReveal>
-
               <div className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <span className="text-sm sm:text-base font-medium text-neutral-300">
                   I am a
@@ -96,7 +88,7 @@ export default function Hero() {
             </div>
 
             <p className="w-full max-w-2xl text-[0.9rem] sm:text-[0.95rem] md:text-base leading-relaxed text-neutral-200/90">
-              I am a 3rd-year undergraduate at the University of Moratuwa with
+              A 3rd-year undergraduate at the University of Moratuwa with
               a strong interest in Artificial Intelligence, Machine Learning,
               Data Science, and Web Development. I enjoy exploring new
               technologies and finding innovative ways to make life easier and
@@ -119,9 +111,6 @@ export default function Hero() {
               <ProfileCard
                 name="Nipun Yasas"
                 title="3rd Year IT Undergraduate"
-                handle="nipun"
-                status=""
-                contactText="Contact Me"
                 avatarUrl="/profile.png"
                 iconUrl="/iconpattern.png"
                 grainUrl="/grain.webp"
@@ -130,7 +119,6 @@ export default function Hero() {
                 showUserInfo
                 enableTilt
                 enableMobileTilt
-                onContactClick={() => console.log("Contact clicked")}
               />
             </div>
           </div>

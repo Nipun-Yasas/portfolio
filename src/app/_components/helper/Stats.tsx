@@ -1,5 +1,4 @@
 import CountUp from "./CountUp";
-
 import { IconCode, IconTrophy, IconCalendarStats } from "@tabler/icons-react";
 
 export default function Stats() {

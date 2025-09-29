@@ -1,9 +1,5 @@
-"use client";
-
 import { FloatingDock } from "./helper/FloatingDock";
 import {
-  IconBrandGithub,
-  IconBrandLinkedin,
   IconUser,
   IconSchool,
   IconCode,
@@ -15,51 +11,37 @@ const links = [
   {
     title: "About",
     icon: (
-      <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <IconUser className="h-full w-full text-neutral-300" />
     ),
     href: "#about",
   },
   {
     title: "Education",
     icon: (
-      <IconSchool className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <IconSchool className="h-full w-full text-neutral-300" />
     ),
     href: "#education",
   },
   {
     title: "Projects",
     icon: (
-      <IconCode className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <IconCode className="h-full w-full text-neutral-300" />
     ),
     href: "#projects",
   },
   {
     title: "Achievements",
     icon: (
-      <IconTrophy className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <IconTrophy className="h-full w-full text-neutral-300" />
     ),
     href: "#achievements",
   },
   {
     title: "Contact",
     icon: (
-      <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <IconMail className="h-full w-full text-neutral-300" />
     ),
     href: "#contact",
-  },
-  {
-    title: "GitHub",
-    icon: (
-      <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
-    href: "https://github.com/",
-  },
-  {
-    title: "LinkedIn",
-    icon: (
-      <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
-    href: "https://linkedin.com/",
   },
 ];
 

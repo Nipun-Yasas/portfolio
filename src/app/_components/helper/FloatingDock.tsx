@@ -55,7 +55,7 @@ const FloatingDockMobile = ({
               <motion.a
                 key={item.title}
                 href={item.href}
-                className="group relative flex h-12 w-12 items-center justify-center rounded-full backdrop-blur-md border border-white/10 shadow-lg shadow-black/40 hover:border-purple-400/40 transition-colors"
+                className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-[#003366] backdrop-blur-md border border-white/10 shadow-lg shadow-black/40 transition-colors"
                 initial={{ opacity: 0, y: 10, scale: 0.85 }}
                 animate={{
                   opacity: 1,
@@ -70,7 +70,7 @@ const FloatingDockMobile = ({
                   transition: { delay: (items.length - 1 - idx) * 0.03, duration: 0.18 },
                 }}
               >
-                <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-md bg-black/70 text-[10px] font-medium text-neutral-200 opacity-0 scale-90 origin-bottom whitespace-nowrap transition-all group-hover:opacity-100 group-hover:scale-100">
+                <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-md bg-transparent text-[10px] font-medium text-neutral-200 opacity-0 scale-90 origin-bottom whitespace-nowrap transition-all group-hover:opacity-100 group-hover:scale-100">
                   {item.title}
                 </span>
                 <div className="h-5 w-5 text-neutral-300">{item.icon}</div>
@@ -83,12 +83,11 @@ const FloatingDockMobile = ({
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label="Toggle mobile navigation"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#1d1633] to-[#090712] border border-white/10 shadow-lg shadow-black/50 hover:shadow-purple-600/30 hover:border-purple-400/40 transition-all relative right-1/2 translate-x-1/2"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#1d1633] to-[#003366] border border-white/10 shadow-lg shadow-black/50 hover:shadow-[#003366]  transition-all relative right-1/2 translate-x-1/2"
       >
         <IconLayoutNavbarCollapse
-          className={`h-6 w-6 text-neutral-300 transition-transform ${
-            open ? "rotate-90" : ""
-          }`}
+          className={`h-6 w-6 text-neutral-300 transition-transform ${open ? "rotate-90" : ""
+            }`}
         />
         <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
       </button>
@@ -103,7 +102,7 @@ const FloatingDockDesktop = ({
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
 }) => {
-  let mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue(Infinity);
   return (
     <motion.nav
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -155,7 +154,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square flex-col items-center justify-center rounded-xl bg-gradient-to-br from-[#241b3d] to-[#0d0a17] border border-white/10 shadow-md shadow-black/40 hover:border-purple-400/40 transition-colors"
+        className="relative flex aspect-square flex-col items-center justify-center rounded-xl bg-gradient-to-br from-[#241b3d] to-[#003366] border-none shadow-md shadow-black/40 transition-colors"
       >
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
@@ -170,7 +169,7 @@ function IconContainer({
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 4 }}
               exit={{ opacity: 0, y: 0 }}
-              className="absolute top-full mt-1 left-1/2 -translate-x-1/2 rounded-md border border-white/10 bg-[#140f24]/90 backdrop-blur px-2 py-0.5 text-[11px] font-medium text-neutral-200 whitespace-nowrap"
+              className="absolute top-full mt-1 left-1/2 -translate-x-1/2 rounded-md border-none bg-transparent backdrop-blur px-2 py-0.5 text-[11px] font-medium text-neutral-200 whitespace-nowrap"
             >
               {title}
             </motion.div>

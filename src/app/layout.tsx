@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
+import ClientLayout from "./_components/ClientLayout";
 
 export const metadata: Metadata = {
   title: "Nipun Yasas",
@@ -17,7 +18,9 @@ export default function RootLayout({
       <body
         suppressHydrationWarning
       >
-        {children}
+        {/* <ClientLayout> */}
+          {children}
+        {/* </ClientLayout> */}
       </body>
     </html>
   );

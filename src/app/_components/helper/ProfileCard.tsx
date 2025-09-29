@@ -15,14 +15,9 @@ interface ProfileCardProps {
   enableTilt?: boolean;
   enableMobileTilt?: boolean;
   mobileTiltSensitivity?: number;
-  miniAvatarUrl?: string;
   name?: string;
   title?: string;
-  handle?: string;
-  status?: string;
-  contactText?: string;
   showUserInfo?: boolean;
-  onContactClick?: () => void;
 }
 
 const DEFAULT_BEHIND_GRADIENT =
@@ -58,20 +53,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
-  handle = 'javicodes',
-  status = 'Online',
-  contactText = 'Contact',
-  showUserInfo = true,
-  onContactClick
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const [showAvatar, setShowAvatar] = useState(true);
-  const [showMiniAvatar, setShowMiniAvatar] = useState(true);
 
   const animationHandlers = useMemo(() => {
     if (!enableTilt) return null;
@@ -279,10 +267,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
   );
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
-
   return (
     <div
       ref={wrapRef}
@@ -303,39 +287,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 width={500}
                 className={styles['avatar']}
                 onError={() => setShowAvatar(false)}
-                style={{ objectFit: 'cover' }}
               />
-            )}
-            {showUserInfo && (
-              <div className={styles['pc-user-info']}>
-                <div className={styles['pc-user-details']}>
-                  <div className={styles['pc-mini-avatar']}>
-                    {showMiniAvatar && (
-                      <Image
-                        src={miniAvatarUrl || avatarUrl}
-                        alt={`${name || 'User'} mini avatar`}
-                        fill
-                        sizes="48px"
-                        onError={() => setShowMiniAvatar(false)}
-                        style={{ objectFit: 'cover', borderRadius: '50%' }}
-                      />
-                    )}
-                  </div>
-                  <div className={styles['pc-user-text']}>
-                    <div className={styles['pc-handle']}>@{handle}</div>
-                    <div className={styles['pc-status']}>{status}</div>
-                  </div>
-                </div>
-                <button
-                  className={styles['pc-contact-btn']}
-                  onClick={handleContactClick}
-                  type="button"
-                  aria-label={`Contact ${name || 'user'}`}
-                  style={{ pointerEvents: 'auto' }}
-                >
-                  {contactText}
-                </button>
-              </div>
             )}
           </div>
           <div className={styles['pc-content']}>

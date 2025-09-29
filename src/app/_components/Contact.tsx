@@ -473,7 +473,7 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="w-full bg-bgcolor mt-3">
+    <section id="contact" className="w-full py-10">
       <div className="mx-auto px-5 md:px-10 lg:px-5 xl:px-10 overflow-x-hidden">
         <h2
           className="text-[clamp(1.6rem,4vw,2.6rem)] font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
@@ -482,7 +482,7 @@ export function Contact() {
         </h2>
 
         <div className="mt-6">
-          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
+          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 mb-5">
             <div className="w-full sm:w-1/2 flex justify-center sm:justify-start">
               <ContactForm />
             </div>

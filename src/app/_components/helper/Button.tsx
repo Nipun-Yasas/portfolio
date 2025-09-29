@@ -83,7 +83,7 @@ export default function Button({ className, children, ...props }: ButtonProps) {
       layout
       layoutId="button"
       ref={scope}
-      className={`flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-full bg-[#110C23] px-4 py-2 font-medium text-white ring-offset-2 transition duration-200 hover:ring-2 hover:ring-[#9C248F] ring-offset-black ${className}`}
+      className={`flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#1d1633] to-[#003366] px-4 py-2 font-medium text-white ring-offset-2 transition duration-200 hover:ring-2 hover:ring-[#003366] ring-offset-black ${className}`}
       {...buttonProps}
       onClick={handleClick}
     >

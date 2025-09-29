@@ -87,11 +87,11 @@ export default function Footer() {
                                     rel="noopener noreferrer"
                                     className="
             flex items-center justify-center 
-            rounded-full border-[3px] border-[#6a37fb] text-[#6a37fb] 
+            rounded-full border-[3px] border-[#003366] text-[#003366] 
             w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
             transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#4824a8] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#4824a8] hover:border-[#4824a8]
+            hover:text-black hover:bg-[#003366] hover:scale-115 hover:-translate-y-1
+            hover:shadow-[0_0_25px_#003366] hover:border-[#003366]
         "
                                 >
                                     <FiLinkedin className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
@@ -103,11 +103,11 @@ export default function Footer() {
                                     rel="noopener noreferrer"
                                     className="
             flex items-center justify-center 
-            rounded-full border-[3px] border-[#6a37fb] text-[#6a37fb] 
+            rounded-full border-[3px] border-[#003366] text-[#003366] 
             w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
             transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#4824a8] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#4824a8] hover:border-[#4824a8]
+            hover:text-black hover:bg-[#003366] hover:scale-115 hover:-translate-y-1
+            hover:shadow-[0_0_25px_#003366] hover:border-[#003366]
         "
                                 >
                                     <FiGithub className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
@@ -118,12 +118,12 @@ export default function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="
-            flex items-center justify-center 
-            rounded-full border-[3px] border-[#6a37fb] text-[#6a37fb] 
+           flex items-center justify-center 
+            rounded-full border-[3px] border-[#003366] text-[#003366] 
             w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
             transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#4824a8] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#4824a8] hover:border-[#4824a8]
+            hover:text-black hover:bg-[#003366] hover:scale-115 hover:-translate-y-1
+            hover:shadow-[0_0_25px_#003366] hover:border-[#003366]
         "
                                 >
                                     <FiPhone className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
@@ -137,31 +137,31 @@ export default function Footer() {
                             <nav className="flex flex-col space-y-1.5">
                                 <Link
                                     href="#about"
-                                    className="text-neutral-300 hover:text-[#4824a8] transition-colors duration-200 text-sm"
+                                    className="text-neutral-300 hover:text-[#003366] transition-colors duration-200 text-sm"
                                 >
                                     About
                                 </Link>
                                 <Link
                                     href="#education"
-                                    className="text-neutral-300 hover:text-[#4824a8] transition-colors duration-200 text-sm"
+                                    className="text-neutral-300 hover:text-[#003366] transition-colors duration-200 text-sm"
                                 >
                                     Education
                                 </Link>
                                 <Link
                                     href="#technical-skills"
-                                    className="text-neutral-300 hover:text-[#4824a8] transition-colors duration-200 text-sm"
+                                    className="text-neutral-300 hover:text-[#003366] transition-colors duration-200 text-sm"
                                 >
                                     Skills
                                 </Link>
                                 <Link
                                     href="#projects"
-                                    className="text-neutral-300 hover:text-[#4824a8] transition-colors duration-200 text-sm"
+                                    className="text-neutral-300 hover:text-[#003366] transition-colors duration-200 text-sm"
                                 >
                                     Projects
                                 </Link>
                                 <Link
                                     href="#contact"
-                                    className="text-neutral-300 hover:text-[#4824a8] transition-colors duration-200 text-sm"
+                                    className="text-neutral-300 hover:text-[#003366] transition-colors duration-200 text-sm"
                                 >
                                     Contact
                                 </Link>
@@ -173,23 +173,23 @@ export default function Footer() {
                             <h4 className="text-lg font-medium text-white">Contact Info</h4>
                             <div className="space-y-2 text-sm">
                                 <div className="flex items-center gap-3 text-neutral-300">
-                                    <FiMapPin className="h-4 w-4 text-[#6a37fb] " />
+                                    <FiMapPin className="h-4 w-4 text-[#003366] " />
                                     <span>Ambepussa, Sri Lanka</span>
                                 </div>
                                 <div className="flex items-center gap-3 text-neutral-300">
-                                    <FiMail className="h-4 w-4 text-[#6a37fb]" />
+                                    <FiMail className="h-4 w-4 text-[#003366]" />
                                     <a
                                         href="mailto:nipuny74@gmail.com"
-                                        className="hover:text-[#4824a8] transition-colors duration-200"
+                                        className="hover:text-[#003366] transition-colors duration-200"
                                     >
                                         nipuny74@gmail.com
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-3 text-neutral-300">
-                                    <FiPhone className="h-4 w-4 text-[#4824a8]" />
+                                    <FiPhone className="h-4 w-4 text-[#003366]" />
                                     <a
                                         href="tel:+94705540725"
-                                        className="hover:text-[#4824a8] transition-colors duration-200"
+                                        className="hover:text-[#003366] transition-colors duration-200"
                                     >
                                         +94 70 554 0725
                                     </a>

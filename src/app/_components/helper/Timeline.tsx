@@ -61,9 +61,7 @@ export default function Timeline({ data }: { data: TimelineEntry[] }) {
                   {item.time}
                 </span>
               </div>
-              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm">
-                {item.content}
-              </div>
+              {item.content}
             </div>
           </div>
         ))}

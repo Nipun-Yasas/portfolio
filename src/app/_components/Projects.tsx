@@ -50,7 +50,7 @@ const CARDS = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full bg-bgcolor mt-3">
+    <section id="projects" className="w-full bg-bgcolor py-10">
       <div className="mx-auto px-5 md:px-10 lg:px-5 xl:px-10 overflow-hidden">
         <h2
           className="text-[clamp(1.6rem,4vw,2.6rem)] mb-10 font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"

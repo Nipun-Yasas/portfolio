@@ -57,7 +57,7 @@ export default function Tabs({
               <motion.div
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
-                className={`absolute inset-0 bg-zinc-800 rounded-full ${activeTabClassName}`}
+                className={`absolute inset-0 bg-gradient-to-br from-[#1d1633] to-[#003366] rounded-full ${activeTabClassName}`}
               />
             )}
 

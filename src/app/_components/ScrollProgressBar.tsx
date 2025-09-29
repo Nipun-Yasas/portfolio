@@ -33,7 +33,7 @@ export default function ScrollProgressBar() {
     >
       <motion.div
         style={{ scaleY, originY: 0 }}
-        className="w-full h-full bg-gradient-to-b from-purple-500 via-indigo-400 to-fuchsia-500"
+        className="w-full h-full bg-gradient-to-br from-fuchsia-500 via-purple-500 to-indigo-500"
       />
     </div>
   );
