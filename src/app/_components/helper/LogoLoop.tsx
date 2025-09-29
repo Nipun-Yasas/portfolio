@@ -282,8 +282,9 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           >
             {(item as any).node}
           </span>
-        ) : (
-          <Image
+        ) : (item as any).srcSet ? (
+          // Use regular img element when srcSet is provided (Next.js Image doesn't support srcSet)
+          <img
             className={cx(
               'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
               '[-webkit-user-drag:none] pointer-events-none',
@@ -301,6 +302,25 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             title={(item as any).title}
             loading="lazy"
             decoding="async"
+            draggable={false}
+          />
+        ) : (
+          // Use Next.js Image component when no srcSet is provided
+          <Image
+            className={cx(
+              'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
+              '[-webkit-user-drag:none] pointer-events-none',
+              '[image-rendering:-webkit-optimize-contrast]',
+              'motion-reduce:transition-none',
+              scaleOnHover &&
+              'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
+            )}
+            src={(item as any).src}
+            width={(item as any).width || 100}
+            height={(item as any).height || 100}
+            alt={(item as any).alt ?? ''}
+            title={(item as any).title}
+            loading="lazy"
             draggable={false}
           />
         );

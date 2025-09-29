@@ -75,9 +75,7 @@ const backend = [
     node: <SiSpringboot />,
     title: "Spring Boot",
   },
-
   { node: <SiNextdotjs />, title: "Next.js" },
-  ,
   { node: <SiNodedotjs />, title: "Node.js" },
 ];
 
