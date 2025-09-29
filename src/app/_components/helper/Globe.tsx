@@ -84,7 +84,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
     ...globeConfig,
   };
 
-  // Initialize globe only once
   useEffect(() => {
     if (!globeRef.current && groupRef.current) {
       globeRef.current = new ThreeGlobe();
@@ -93,7 +92,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
     }
   }, []);
 
-  // Build material when globe is initialized or when relevant props change
   useEffect(() => {
     if (!globeRef.current || !isInitialized) return;
 

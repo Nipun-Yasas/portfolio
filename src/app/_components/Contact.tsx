@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
 import dynamic from "next/dynamic";
-import { motion } from "motion/react";
-import { ContactForm } from "./ContactForm";
-import { ContactCard } from "./ContactCard";
+import ContactForm from "./ContactForm";
+import { WorldMap } from "./helper/WorldMap";
+
 
 const World = dynamic(() => import("./helper/Globe").then((m) => m.World), {
   ssr: false,
@@ -395,7 +394,83 @@ export function Contact() {
       arcAlt: 0.3,
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
+    {
+      order: 15,
+      startLat: 7.8731,
+      startLng: 80.7718,
+      endLat: 3.2028,
+      endLng: 73.2207,
+      arcAlt: 0.3,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
   ];
+
+  const dots = [
+    {
+      start: { lat: -8.9, lng: 80.2207},
+      end: {lat: 34.0522,lng: -118.2437}, // Los Angeles, USA
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 38.7223, lng: -9.1393 }, // Lisbon, Portugal
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: -15.7975, lng: -47.8919 }, // Brasília, Brazil
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 51.5074, lng: -0.1278 }, // London, UK
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok, Russia
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: -1.2921, lng: 36.8219 }, // Nairobi, Kenya
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207},
+      end: { lat: 28.6139, lng: 77.209 }, // New Delhi, India
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 35.6762, lng: 139.6503 }, // Tokyo, Japan
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: -33.8688, lng: 151.2093 }, // Sydney, Australia
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 40.7128, lng: -74.006 }, // New York, USA
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 48.8566, lng: 2.3522 }, // Paris, France
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: -22.9068, lng: -43.1729 }, // Rio de Janeiro, Brazil
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 55.7558, lng: 37.6173 }, // Moscow, Russia
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 1.3521, lng: 103.8198 }, // Singapore
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: 25.2048, lng: 55.2708 }, // Dubai, UAE
+    },
+    {
+      start: { lat: -8.9, lng: 80.2207 },
+      end: { lat: -34.6037, lng: -58.3816 }, // Buenos Aires, Argentina
+    }
+  ]
 
   return (
     <section id="contact" className="w-full bg-bgcolor mt-3">
@@ -406,18 +481,18 @@ export function Contact() {
           Contact
         </h2>
 
-        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 items-start gap-x-3 gap-y-5 sm:gap-y-4 lg:gap-3">
-          <div className="w-full order-1 col-span-1 md:col-span-2 lg:col-span-1 xl:col-span-1 ">
-            
-              <ContactCard />
-          </div>
-          <div className="w-full flex justify-center min-w-0 col-span-2 md:col-span-2 lg:col-span-2 xl:col-span-2 order-3 md:order-2 lg:order-2">
-            <ContactForm />
-          </div>
-
-          <div className="w-full min-w-0 self-center order-2 col-span-1 lg:col-span-2 xl:col-span-2 lg:order-3 block md:hidden lg:block">
-            <div className="relative h-40 sm:h-50 md:h-[20rem] lg:h-[22rem] rounded-2xl overflow-hidden">
-              <World data={sampleArcs} globeConfig={globeConfig} />
+        <div className="mt-6">
+          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
+            <div className="w-full sm:w-1/2 flex justify-center sm:justify-start">
+              <ContactForm />
+            </div>
+            <div className="w-full sm:w-1/2">
+              <div className="block md:hidden h-70 sm:h-80">
+                <World data={sampleArcs} globeConfig={globeConfig} />
+              </div>
+              <div className="hidden md:block">
+                <WorldMap dots={dots} />
+              </div>
             </div>
           </div>
         </div>

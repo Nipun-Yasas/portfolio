@@ -3,8 +3,9 @@ import React from "react";
 import { Label } from "./helper/Label";
 import { Input } from "./helper/Input";
 import { Textarea } from "./helper/Textarea";
+import  Button from "./helper/Button";
 
-export function ContactForm() {
+export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -17,7 +18,6 @@ export function ContactForm() {
 
   return (
     <div className="shadow-input w-full max-w-sm lg:px-8 rounded-none bg-bgcolor md:rounded-2xl ">
-
       <form onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="name">Name</Label>
@@ -52,12 +52,9 @@ export function ContactForm() {
           />
         </LabelInputContainer>
 
-        <button
-          className="relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-700 text-sm font-medium text-white dark:from-zinc-900 dark:to-zinc-800"
-          type="submit"
-        >
-          Send Message
-        </button>
+        <div className="flex justify-center">
+        <Button >Send a message</Button></div>
+
       </form>
     </div>
   );
