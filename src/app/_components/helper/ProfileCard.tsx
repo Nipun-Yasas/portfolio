@@ -1,6 +1,7 @@
 "use client";
+
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
-import  '../../_styles/ProfileCard.css';
+import '../../_styles/ProfileCard.css';
 
 interface ProfileCardProps {
   avatarUrl: string;
@@ -59,7 +60,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   miniAvatarUrl,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
-  handle = 'nipun',
+  handle = 'javicodes',
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,

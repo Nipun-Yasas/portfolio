@@ -8,7 +8,7 @@ const World = dynamic(() => import("./helper/Globe").then((m) => m.World), {
   ssr: false,
 });
 
-export function Contact() {
+export default function Contact() {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
