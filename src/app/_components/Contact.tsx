@@ -408,72 +408,72 @@ export default function Contact() {
   const dots = [
     {
       start: { lat: -8.9, lng: 80.2207},
-      end: {lat: 34.0522,lng: -118.2437}, // Los Angeles, USA
+      end: {lat: 34.0522,lng: -118.2437},
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 38.7223, lng: -9.1393 }, // Lisbon, Portugal
+      end: { lat: 38.7223, lng: -9.1393 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: -15.7975, lng: -47.8919 }, // Brasília, Brazil
+      end: { lat: -15.7975, lng: -47.8919 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 51.5074, lng: -0.1278 }, // London, UK
+      end: { lat: 51.5074, lng: -0.1278 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok, Russia
+      end: { lat: 43.1332, lng: 131.9113 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: -1.2921, lng: 36.8219 }, // Nairobi, Kenya
+      end: { lat: -1.2921, lng: 36.8219 },
     },
     {
       start: { lat: -8.9, lng: 80.2207},
-      end: { lat: 28.6139, lng: 77.209 }, // New Delhi, India
+      end: { lat: 28.6139, lng: 77.209 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 35.6762, lng: 139.6503 }, // Tokyo, Japan
+      end: { lat: 35.6762, lng: 139.6503 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: -33.8688, lng: 151.2093 }, // Sydney, Australia
+      end: { lat: -33.8688, lng: 151.2093 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 40.7128, lng: -74.006 }, // New York, USA
+      end: { lat: 40.7128, lng: -74.006 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 48.8566, lng: 2.3522 }, // Paris, France
+      end: { lat: 48.8566, lng: 2.3522 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: -22.9068, lng: -43.1729 }, // Rio de Janeiro, Brazil
+      end: { lat: -22.9068, lng: -43.1729 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 55.7558, lng: 37.6173 }, // Moscow, Russia
+      end: { lat: 55.7558, lng: 37.6173 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 1.3521, lng: 103.8198 }, // Singapore
+      end: { lat: 1.3521, lng: 103.8198 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: 25.2048, lng: 55.2708 }, // Dubai, UAE
+      end: { lat: 25.2048, lng: 55.2708 },
     },
     {
       start: { lat: -8.9, lng: 80.2207 },
-      end: { lat: -34.6037, lng: -58.3816 }, // Buenos Aires, Argentina
+      end: { lat: -34.6037, lng: -58.3816 },
     }
   ]
 
   return (
-    <section id="contact" className="w-full py-10">
+    <section id="contact" className="py-5 md:py-8 lg:py-10">
       <div className="mx-auto px-5 md:px-10 lg:px-5 xl:px-10 overflow-x-hidden">
         <h2
           className="text-[clamp(1.6rem,4vw,2.6rem)] font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
@@ -482,15 +482,15 @@ export default function Contact() {
         </h2>
 
         <div className="mt-6">
-          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 mb-5">
+          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 mb-5 sm:items-center">
             <div className="w-full sm:w-1/2 flex justify-center sm:justify-start">
               <ContactForm />
             </div>
-            <div className="w-full sm:w-1/2">
-              <div className="block md:hidden h-70 sm:h-80">
+            <div className="w-full sm:w-1/2 flex items-center justify-center">
+              <div className="block md:hidden h-70 sm:h-80 w-full">
                 <World data={sampleArcs} globeConfig={globeConfig} />
               </div>
-              <div className="hidden md:block">
+              <div className="hidden md:block w-full">
                 <WorldMap dots={dots} />
               </div>
             </div>

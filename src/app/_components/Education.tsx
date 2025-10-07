@@ -19,8 +19,8 @@ export default function Education() {
 
           <div className="space-y-3">
             <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
-              Although I qualified for Engineering, I chose to pursue a degree in Information Technology out of my passion for technology. I am currently a 3rd-year undergraduate with a strong interest in Artificial Intelligence (AI), Machine Learning (ML), and Web Development.
-            </p>
+              Even though I could have chosen engineering or AI, I decided to pursue Information Technology because of the curiosity I’ve had about technology since childhood. At the time, I didn’t have a clear idea about AI, so I chose IT as my path. Now, I’ve discovered that I truly enjoy building projects and participating in competitions related to web development, machine learning, and AI.
+              </p>
 
             <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-br from-[#1d1633] to-[#003366]">
               <span className="text-sm font-semibold text-purple-300">
@@ -80,9 +80,13 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="relative w-full py-10">
+    <section id="education" className="relative py-5 md:py-8 lg:py-10">
       <div className="absolute overflow-hidden inset-0 w-full h-full pointer-events-none">
-        <Spotlight />
+        <Spotlight 
+          gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(266, 100%, 80%, .08) 0, hsla(266, 80%, 60%, .04) 50%, hsla(266, 60%, 50%, 0) 80%)"
+          gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 70%, .06) 0, hsla(210, 80%, 50%, .03) 80%, transparent 100%)"
+          gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(280, 100%, 75%, .05) 0, hsla(280, 80%, 60%, .02) 80%, transparent 100%)"
+        />
       </div>
       <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <Timeline data={data} />

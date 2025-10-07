@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import Image from 'next/image';
 import '../../_styles/ProfileCard.css';
 
 interface ProfileCardProps {
@@ -14,13 +15,8 @@ interface ProfileCardProps {
   enableTilt?: boolean;
   enableMobileTilt?: boolean;
   mobileTiltSensitivity?: number;
-  miniAvatarUrl?: string;
   name?: string;
   title?: string;
-  handle?: string;
-  status?: string;
-  contactText?: string;
-  showUserInfo?: boolean;
   onContactClick?: () => void;
 }
 
@@ -57,14 +53,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
-  handle = 'javicodes',
-  status = 'Online',
-  contactText = 'Contact',
-  showUserInfo = true,
-  onContactClick
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -275,10 +265,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
   );
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
-
   return (
     <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
       <section ref={cardRef} className="pc-card">
@@ -286,47 +272,19 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content pc-avatar-content">
-            <img
+            <Image
               className="avatar"
               src={avatarUrl}
               alt={`${name || 'User'} avatar`}
-              loading="lazy"
+              width={200}
+              height={200}
+              priority
               onError={e => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
               }}
             />
-            {showUserInfo && (
-              <div className="pc-user-info">
-                <div className="pc-user-details">
-                  <div className="pc-mini-avatar">
-                    <img
-                      src={miniAvatarUrl || avatarUrl}
-                      alt={`${name || 'User'} mini avatar`}
-                      loading="lazy"
-                      onError={e => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.opacity = '0.5';
-                        target.src = avatarUrl;
-                      }}
-                    />
-                  </div>
-                  <div className="pc-user-text">
-                    <div className="pc-handle">@{handle}</div>
-                    <div className="pc-status">{status}</div>
-                  </div>
-                </div>
-                <button
-                  className="pc-contact-btn"
-                  onClick={handleContactClick}
-                  style={{ pointerEvents: 'auto' }}
-                  type="button"
-                  aria-label={`Contact ${name || 'user'}`}
-                >
-                  {contactText}
-                </button>
-              </div>
-            )}
+            
           </div>
           <div className="pc-content">
             <div className="pc-details">

@@ -123,7 +123,7 @@ export default function TechnicalSkills() {
       title: "Frontend",
       value: "frontend",
       content: (
-        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#110C23]">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#003366]">
           <SkillCards items={frontend} />
         </div>
       ),
@@ -132,7 +132,7 @@ export default function TechnicalSkills() {
       title: "Backend",
       value: "backend",
       content: (
-        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#110C23]">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#003366]">
           <SkillCards items={backend} />
         </div>
       ),
@@ -141,7 +141,7 @@ export default function TechnicalSkills() {
       title: "Database",
       value: "database",
       content: (
-        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#110C23]">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#003366]">
           <SkillCards items={database} />
         </div>
       ),
@@ -150,7 +150,7 @@ export default function TechnicalSkills() {
       title: "DevOps",
       value: "devops",
       content: (
-        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#110C23]">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#003366]">
           <SkillCards items={devops} />
         </div>
       ),
@@ -159,7 +159,7 @@ export default function TechnicalSkills() {
       title: "Programming",
       value: "programming",
       content: (
-        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#110C23]">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#003366]">
           <SkillCards items={programming} />
         </div>
       ),
@@ -168,7 +168,7 @@ export default function TechnicalSkills() {
       title: "ML",
       value: "ml",
       content: (
-        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#110C23]">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#003366]">
           <SkillCards items={ml} />
         </div>
       ),
@@ -177,7 +177,7 @@ export default function TechnicalSkills() {
       title: "Others",
       value: "others",
       content: (
-        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#110C23]">
+        <div className="w-full h-[500px] sm:h-[375px] md:h-[400px] lg:h-[275px] rounded-2xl p-5 md:p-8 bg-[#003366]">
           <SkillCards items={others} />
         </div>
       ),
@@ -186,8 +186,8 @@ export default function TechnicalSkills() {
 
   return (
     <section
-      id="#technicalskills"
-      className="w-full py-10 max-w-8xl px-4 sm:px-6 lg:px-8"
+      id="technicalskills"
+      className="py-5 md:py-8 lg:py-10 max-w-8xl px-4 sm:px-6 lg:px-8"
     >
       <div className="mx-auto">
         <h2 className="text-[clamp(1.6rem,4vw,2.6rem)] mb-8 font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent ">

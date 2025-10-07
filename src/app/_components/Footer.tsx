@@ -2,136 +2,78 @@ import React from 'react';
 import Link from 'next/link';
 import { FiGithub, FiLinkedin, FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 
+const SocialLink = ({ href, ariaLabel, icon: Icon, colorClass }: { 
+    href: string; 
+    ariaLabel: string; 
+    icon: React.ComponentType<{ className?: string }>;
+    colorClass: string;
+}) => (
+    <a
+        href={href}
+        aria-label={ariaLabel}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`
+            flex items-center justify-center 
+            rounded-full border-[3px] ${colorClass}
+            w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
+            transition-all duration-300 ease-in-out
+            hover:text-black hover:scale-115 hover:-translate-y-1
+        `}
+    >
+        <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+    </a>
+);
+
+const ProfileSection = ({ colorClass }: { colorClass: string }) => (
+    <div className="space-y-3">
+        <h3 className="text-xl font-semibold bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+            Nipun Yasas
+        </h3>
+        <p className="text-neutral-300 text-sm leading-relaxed">
+            Full-stack developer passionate about creating exceptional digital experiences
+            with modern technologies and clean, efficient code.
+        </p>
+        <div className="flex space-x-4">
+            <SocialLink
+                href="https://www.linkedin.com/in/nipun-yasas-1126a8275"
+                ariaLabel="LinkedIn"
+                icon={FiLinkedin}
+                colorClass={colorClass}
+            />
+            <SocialLink
+                href="https://github.com/Nipun-Yasas"
+                ariaLabel="GitHub"
+                icon={FiGithub}
+                colorClass={colorClass}
+            />
+            <SocialLink
+                href="https://wa.me/94705540725"
+                ariaLabel="WhatsApp"
+                icon={FiPhone}
+                colorClass={colorClass}
+            />
+        </div>
+    </div>
+);
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const socialColorClass = "border-[#003366] text-[#003366] hover:bg-[#003366] hover:shadow-[0_0_25px_#003366] hover:border-[#003366]";
 
     return (
         <footer className="w-full mt-2 bg-bgcolor border-t border-white/10 py-8 sm:py-12">
             <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
                 <div className="space-y-6 md:space-y-0">
-                    <div className="space-y-3 md:hidden">
-                        <h3 className="text-xl font-semibold bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-                            Nipun Yasas
-                        </h3>
-                        <p className="text-neutral-300 text-sm leading-relaxed">
-                            Full-stack developer passionate about creating exceptional digital experiences
-                            with modern technologies and clean, efficient code.
-                        </p>
-                        <div className="flex space-x-4">
-                            <a
-                                href="https://www.linkedin.com/in/nipun-yasas-1126a8275"
-                                aria-label="LinkedIn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-            flex items-center justify-center 
-            rounded-full border-[3px] border-[#6a37fb] text-[#6a37fb] 
-            w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
-            transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#4824a8] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#4824a8] hover:border-[#4824a8]
-        "
-                            >
-                                <FiLinkedin className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                            </a>
-                            <a
-                                href="https://github.com/Nipun-Yasas"
-                                aria-label="GitHub"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-            flex items-center justify-center 
-            rounded-full border-[3px] border-[#6a37fb] text-[#6a37fb] 
-            w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
-            transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#4824a8] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#4824a8] hover:border-[#4824a8]
-        "
-                            >
-                                <FiGithub className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                            </a>
-                            <a
-                                href="https://wa.me/94705540725"
-                                aria-label="WhatsApp"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-            flex items-center justify-center 
-            rounded-full border-[3px] border-[#6a37fb] text-[#6a37fb] 
-            w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
-            transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#4824a8] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#4824a8] hover:border-[#4824a8]
-        "
-                            >
-                                <FiPhone className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                            </a>
-                        </div>
+                    <div className="md:hidden">
+                        <ProfileSection colorClass={socialColorClass} />
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
-                        <div className="hidden md:block space-y-3">
-                            <h3 className="text-xl font-semibold bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-                                Nipun Yasas
-                            </h3>
-                            <p className="text-neutral-300 text-sm leading-relaxed">
-                                Full-stack developer passionate about creating exceptional digital experiences
-                                with modern technologies and clean, efficient code.
-                            </p>
-                            <div className="flex space-x-4">
-                                <a
-                                    href="https://www.linkedin.com/in/nipun-yasas-1126a8275"
-                                    aria-label="LinkedIn"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="
-            flex items-center justify-center 
-            rounded-full border-[3px] border-[#003366] text-[#003366] 
-            w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
-            transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#003366] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#003366] hover:border-[#003366]
-        "
-                                >
-                                    <FiLinkedin className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                                </a>
-                                <a
-                                    href="https://github.com/Nipun-Yasas"
-                                    aria-label="GitHub"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="
-            flex items-center justify-center 
-            rounded-full border-[3px] border-[#003366] text-[#003366] 
-            w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
-            transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#003366] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#003366] hover:border-[#003366]
-        "
-                                >
-                                    <FiGithub className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                                </a>
-                                <a
-                                    href="https://wa.me/94705540725"
-                                    aria-label="WhatsApp"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="
-           flex items-center justify-center 
-            rounded-full border-[3px] border-[#003366] text-[#003366] 
-            w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16
-            transition-all duration-300 ease-in-out
-            hover:text-black hover:bg-[#003366] hover:scale-115 hover:-translate-y-1
-            hover:shadow-[0_0_25px_#003366] hover:border-[#003366]
-        "
-                                >
-                                    <FiPhone className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                                </a>
-                            </div>
+                        <div className="hidden md:block">
+                            <ProfileSection colorClass={socialColorClass} />
                         </div>
 
-                        {/* Quick Links */}
                         <div className="space-y-3">
                             <h4 className="text-lg font-medium text-white">Quick Links</h4>
                             <nav className="flex flex-col space-y-1.5">
@@ -160,6 +102,12 @@ export default function Footer() {
                                     Projects
                                 </Link>
                                 <Link
+                                    href="#archivements"
+                                    className="text-neutral-300 hover:text-[#003366] transition-colors duration-200 text-sm"
+                                >
+                                    Achievements
+                                </Link>
+                                <Link
                                     href="#contact"
                                     className="text-neutral-300 hover:text-[#003366] transition-colors duration-200 text-sm"
                                 >
@@ -168,16 +116,15 @@ export default function Footer() {
                             </nav>
                         </div>
 
-                        {/* Contact Info */}
                         <div className="space-y-3">
                             <h4 className="text-lg font-medium text-white">Contact Info</h4>
                             <div className="space-y-2 text-sm">
                                 <div className="flex items-center gap-3 text-neutral-300">
-                                    <FiMapPin className="h-4 w-4 text-[#003366] " />
+                                    <FiMapPin className="h-5 w-5 sm:h-4 sm:w-4 text-[#003366] flex-shrink-0" />
                                     <span>Ambepussa, Sri Lanka</span>
                                 </div>
                                 <div className="flex items-center gap-3 text-neutral-300">
-                                    <FiMail className="h-4 w-4 text-[#003366]" />
+                                    <FiMail className="h-5 w-5 sm:h-4 sm:w-4 text-[#003366] flex-shrink-0" />
                                     <a
                                         href="mailto:nipuny74@gmail.com"
                                         className="hover:text-[#003366] transition-colors duration-200"
@@ -186,7 +133,7 @@ export default function Footer() {
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-3 text-neutral-300">
-                                    <FiPhone className="h-4 w-4 text-[#003366]" />
+                                    <FiPhone className="h-5 w-5 sm:h-4 sm:w-4 text-[#003366] flex-shrink-0" />
                                     <a
                                         href="tel:+94705540725"
                                         className="hover:text-[#003366] transition-colors duration-200"
