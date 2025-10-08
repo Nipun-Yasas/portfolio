@@ -48,8 +48,9 @@ export default function Hero() {
               leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
               rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
               sticks: 0x03b3c3
-            }
-          }} />
+            },
+          }}
+        />
       </div>
 
       <Nav />
@@ -77,23 +78,19 @@ export default function Hero() {
                 <motion.div className="flex">
                   <LayoutTextFlip
                     text=""
-                    words={[
-                      "Full Stack Developer",
-                      "Problem Solver",
-                      "Coder",
-                    ]}
+                    words={["Full Stack Developer", "Problem Solver", "Coder"]}
                   />
                 </motion.div>
               </div>
             </div>
 
             <p className="w-full max-w-2xl text-[0.9rem] sm:text-[0.95rem] md:text-base leading-relaxed text-neutral-200/90">
-              A 3rd-year undergraduate at the University of Moratuwa with
-              a strong interest in Artificial Intelligence, Machine Learning,
-              Data Science, and Web Development. I enjoy exploring new
-              technologies and finding innovative ways to make life easier and
-              more efficient through technology constantly learning,
-              experimenting, and building impactful solutions.
+              A 3rd-year undergraduate at the University of Moratuwa with a
+              strong interest in Artificial Intelligence, Machine Learning, Data
+              Science, and Web Development. I enjoy exploring new technologies
+              and finding innovative ways to make life easier and more efficient
+              through technology constantly learning, experimenting, and
+              building impactful solutions.
             </p>
 
             <div className="w-full">
@@ -101,16 +98,20 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4 w-full max-w-xl justify-center lg:justify-start">
-              <Button onClick={async () => {
-                await new Promise(resolve => setTimeout(resolve, 800));
-                
-                const link = document.createElement('a');
-                link.href = '/Nipun - CV.pdf';
-                link.download = 'Nipun - CV.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}>Download CV</Button>
+              <Button
+                onClick={async () => {
+                  await new Promise((resolve) => setTimeout(resolve, 800));
+
+                  const link = document.createElement("a");
+                  link.href = "/Nipun - CV.pdf";
+                  link.download = "Nipun - CV.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
+                Download CV
+              </Button>
             </div>
           </div>
 
@@ -132,5 +133,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

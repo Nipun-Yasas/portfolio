@@ -5,6 +5,7 @@ const CARDS = [
   {
     id: 0,
     name: "Employee Management System",
+    status: "Completed",
     role: (
       <p className="text-neutral-300 font-normal text-sm sm:text-base leading-relaxed">
         I was responsible for developing the admin panel module, the layout of the web app, mode changing support, and theming.),
@@ -21,12 +22,13 @@ const CARDS = [
       </p>
     ),
     image: "/ems.png",
-    githubUrl: "https://github.com/yourusername/employee-management",
-    liveUrl: "https://employee-management-demo.com",
+    githubUrl: ["https://github.com/LalalnaGurusinghe/Shiftly-EMS-FrontEnd-Creative_software.git", "https://github.com/LalalnaGurusinghe/Shiftly-EMS-Backend-Creative_software.git"],
+    liveUrl: "https://shiftly-ems-front-end-creative-soft.vercel.app/",
   },
   {
     id: 1,
     name: "SkillForge Web App",
+    status: "Ongoing",
     role: (
       <p className="text-neutral-300 font-normal text-sm sm:text-base leading-relaxed">
         I was responsible for developing the admin panel module, the layout of the web app, mode changing support, and theming.),
@@ -43,8 +45,8 @@ const CARDS = [
       </p>
     ),
     image: "/skillforge.png",
-    githubUrl: "https://github.com/yourusername/task-management",
-    liveUrl: "https://task-app-demo.com",
+    githubUrl: "https://github.com/Nipun-Yasas/SkillForge.git",
+    liveUrl: "https://skillforge-drab.vercel.app/",
   }
 ];
 

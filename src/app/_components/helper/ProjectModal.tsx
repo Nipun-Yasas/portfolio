@@ -17,7 +17,7 @@ type ProjectData = {
   techStack: string[];
   content: React.ReactNode;
   image: string;
-  githubUrl?: string;
+  githubUrl?: string | string[];
   liveUrl?: string;
 };
 
@@ -76,16 +76,48 @@ export default function ProjectModal({ project }: { project: ProjectData }) {
           <div className="flex items-center hidden lg:block justify-between gap-4 pt-1 md:pt-0 lg:pt-0 xl:pt-0">
             <div className="flex items-center gap-4">
               {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FiGithub size={16} />
-                  <span>Code</span>
-                </a>
+                <>
+                  {Array.isArray(project.githubUrl) ? (
+                    <>
+                      {/* Frontend Button */}
+                      <a
+                        href={project.githubUrl[0]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <FiGithub size={16} />
+                        <span>Front</span>
+                      </a>
+                      {/* Backend Button */}
+                      {project.githubUrl[1] && (
+                        <a
+                          href={project.githubUrl[1]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <FiGithub size={16} />
+                          <span>Back</span>
+                        </a>
+                      )}
+                    </>
+                  ) : (
+                    /* Single Code Button */
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FiGithub size={16} />
+                      <span>Code</span>
+                    </a>
+                  )}
+                </>
               )}
               {project.liveUrl && (
                 <a

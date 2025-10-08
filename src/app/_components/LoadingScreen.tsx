@@ -15,7 +15,7 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       setTimeout(() => {
         onLoadingComplete();
       }, 500); 
-    }, 3000); 
+    }, 1000); 
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);

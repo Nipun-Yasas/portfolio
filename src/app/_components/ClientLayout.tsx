@@ -35,8 +35,9 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <div 
         className={`transition-opacity duration-500 ${
-          showContent ? 'opacity-100 visible relative' : 'opacity-0 invisible absolute'
+          showContent ? 'opacity-100' : 'opacity-0'
         }`}
+        style={{ pointerEvents: showContent ? 'auto' : 'none' }}
       >
         {children}
       </div>

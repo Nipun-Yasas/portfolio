@@ -12,7 +12,11 @@ import {
   SiMongodb,
   SiFigma,
   SiMysql,
+  SiPostgresql,
+  SiRender,
+  SiSwagger,
   SiSpringboot,
+  SiJupyter,
   SiVuedotjs,
   SiHtml5,
   SiCss3,
@@ -82,6 +86,7 @@ const backend = [
 const database = [
   { node: <SiMongodb />, title: "MongoDB" },
   { node: <SiMysql />, title: "MySQL" },
+  { node: <SiPostgresql />, title: "PostgreSQL" },
 ];
 
 const devops = [
@@ -104,7 +109,6 @@ const ml = [
     node: <SiScikitlearn />,
     title: "Scikit-learn",
   },
-
   { node: <SiOpencv />, title: "OpenCV" },
 ];
 
@@ -115,6 +119,9 @@ const others = [
   { node: <SiJira />, title: "Jira" },
   { node: <SiCanva />, title: "Canva" },
   { node: <SiPostman />, title: "Postman" },
+  { node: <SiRender />, title: "Render" },
+  { node: <SiSwagger />, title: "Swagger" },
+  { node: <SiJupyter />, title: "Jupyter" },
 ];
 
 export default function TechnicalSkills() {
