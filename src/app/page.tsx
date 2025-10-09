@@ -6,6 +6,7 @@ import Education from "./_components/Education";
 import TechnicalSkills from "./_components/TechnicalSkills";
 import Logos from "./_components/Logos";
 import Projects from "./_components/Projects";
+import Archievements from "./_components/Achievements";
 import Contact from "./_components/Contact";
 import Footer from "./_components/Footer";
 
@@ -18,6 +19,7 @@ export default function Page() {
       <TechnicalSkills />
       <Logos />
       <Projects />
+      <Archievements />
       <Contact />
       <Footer />
     </>

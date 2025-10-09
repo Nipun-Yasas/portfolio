@@ -8,6 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 
 interface ModalContextType {
   open: boolean;
@@ -57,7 +58,7 @@ export const ModalTrigger = ({
   
   return (
     <button
-      className={`px-4 py-2 rounded-md text-black dark:text-white text-center relative  ${className}`}
+      className={`px-4 py-2 rounded-md text-black dark:text-white text-center relative ${className}`}
       onClick={handleClick}
     >
       {children}
@@ -65,14 +66,15 @@ export const ModalTrigger = ({
   );
 };
 
-export const ModalBody = ({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) => {
-  const { open } = useModal();
+export const ModalBody = ({ children }: { children: React.ReactNode }) => {
+  const { open, setOpen } = useModal();
+  const ref = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -82,11 +84,11 @@ export const ModalBody = ({
     }
   }, [open]);
 
-  const modalRef = useRef<HTMLDivElement>(null);
-  const { setOpen } = useModal();
-  useOutsideClick(modalRef, () => setOpen(false));
+  useOutsideClick(ref, () => setOpen(false));
 
-  return (
+  if (!mounted) return null;
+  
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -101,16 +103,16 @@ export const ModalBody = ({
             opacity: 0,
             backdropFilter: "blur(0px)",
           }}
-          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-1000"
+          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-[9999]"
         >
           <Overlay />
 
           <motion.div
-            ref={modalRef}
-            className={`min-h-[50%] max-h-[90%] md:max-w-[80%] bg-[#060010] border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-100 flex flex-col flex-1 overflow-hidden ${className}`}
+            ref={ref}
+            className="min-h-[50%] max-h-[98vh] sm:max-h-[90vh] md:max-h-[90vh] lg:max-h-[80vh] xl:max-h-[80vh] max-w-[90%] sm:max-w-[90%] md:max-w-[90%] lg:max-w-[80%] xl:max-w-[60%] bg-black border border-neutral-800 rounded-2xl relative z-[10000] flex flex-col flex-1 overflow-hidden"
             initial={{
               opacity: 0,
-              scale: 0.5,
+              scale: 0,
               rotateX: 40,
               y: 40,
             }}
@@ -136,7 +138,8 @@ export const ModalBody = ({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
@@ -154,23 +157,8 @@ export const ModalContent = ({
   );
 };
 
-export const ModalFooter = ({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div
-      className={`flex justify-end p-4 bg-gray-100 dark:bg-neutral-900 ${className}`}
-    >
-      {children}
-    </div>
-  );
-};
 
-const Overlay = ({ className }: { className?: string }) => {
+export const Overlay = ({ className }: { className?: string }) => {
   return (
     <motion.div
       initial={{
@@ -184,7 +172,7 @@ const Overlay = ({ className }: { className?: string }) => {
         opacity: 0,
         backdropFilter: "blur(0px)",
       }}
-      className={`fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}`}
+      className={`fixed inset-0 h-full w-full bg-transparent bg-opacity-50 z-[9998] ${className}`}
     ></motion.div>
   );
 };
@@ -194,7 +182,7 @@ const CloseIcon = () => {
   return (
     <button
       onClick={() => setOpen(false)}
-      className="absolute top-4 right-4 group"
+      className="absolute top-4 right-4 group z-[10001]"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -237,3 +225,4 @@ export const useOutsideClick = (
     };
   }, [ref, callback]);
 };
+

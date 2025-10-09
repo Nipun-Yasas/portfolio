@@ -1,5 +1,5 @@
 "use client";
-import { CardStack } from "./helper/CardStack";
+import { ProjectsCardStack } from "./helper/ProjectsCardStack";
 
 const CARDS = [
   {
@@ -22,8 +22,8 @@ const CARDS = [
       </p>
     ),
     image: "/ems.png",
-    githubUrl: ["https://github.com/LalalnaGurusinghe/Shiftly-EMS-FrontEnd-Creative_software.git", "https://github.com/LalalnaGurusinghe/Shiftly-EMS-Backend-Creative_software.git"],
-    liveUrl: "https://shiftly-ems-front-end-creative-soft.vercel.app/",
+    githubUrl:"https://github.com/LalalnaGurusinghe/Shiftly-EMS-FrontEnd-Creative_software.git",
+    liveUrl: "https://shiftly-ems-front-end-creative-soft.vercel.app/"
   },
   {
     id: 1,
@@ -46,22 +46,62 @@ const CARDS = [
     ),
     image: "/skillforge.png",
     githubUrl: "https://github.com/Nipun-Yasas/SkillForge.git",
-    liveUrl: "https://skillforge-drab.vercel.app/",
+    liveUrl: "https://skill-forge-three.vercel.app/",
+  },
+  {
+    id: 2,
+    name: "Respair Pro",
+    status: "Completed",
+    role: (
+      <p className="text-neutral-300 font-normal text-sm sm:text-base leading-relaxed">
+        I designed the power distribution system and programmed the servo motor to control breaths per minute and breath volume.</p>
+    ),
+    techStack: ["Esp32", "Arduino UNO", "MAX30101", "MPX1100", "DHT11"],
+    shortDescription: (
+      <p className="text-neutral-300 font-normal text-sm sm:text-base leading-relaxed">
+        A DIY ventilator that provides respiratory aid to patients, controlling breaths per minute and volume. Sensor data is processed via ESP32, with an Arduino Uno controlling the LCD and servo motor. Powered by a 12V 10A supply with buck converters for component distribution. </p>
+    ),content: (
+      <p>
+       As part of our first-year hardware project, we built a DIY ventilator, which is used to provide respiratory aid to patients with breathing problems. It can control the breaths per minute and breath volumes, which are displayed on the LCD. We used a servo motor, MAX30101 blood oxygen sensor, MPX1100 pressure sensor, and DHT11 temperature sensor. Sensor data was processed through an ESP32, and an Arduino Uno board was used to control the LCD display and servo motor. We used a 12V 10A power supply to power the system and buck converters to distribute the necessary power among individual components.</p>
+    ),
+    image: "/respair.jpeg",
+    githubUrl: "https://github.com/Nipun-Yasas/hardware-project.git",
+    liveUrl: "https://drive.google.com/file/d/1brZ1zDw_Brzz7EYhrSa8fO--aS0t-mxl/view?usp=drive_link",
+  }
+  ,
+  {
+    id: 3,
+    name: "Boarding Seeker",
+    status: "Completed",
+    role: (
+      <p className="text-neutral-300 font-normal text-sm sm:text-base leading-relaxed">
+        As the team leader, I designed the basic layout, color scheme, and boarding display sections.</p>
+    ),
+    techStack: ["Figma"],
+    shortDescription: (
+      <p className="text-neutral-300 font-normal text-sm sm:text-base leading-relaxed">
+        A UI design for an app that helps university students find boarding places. Connects boarding owners and students, with a user-friendly and easy-to-use interface.</p>
+    ),content: (
+      <p>
+       As a design for Devthon 1.0, a web development competition, we created a UI design for an application that helps university students find boarding places. We got this idea because when we first came to university, it was hard for us to find a boarding place. So we created a UI design that connects boarding owners and university students to help them find their ideal boarding places. We made the UI user-friendly and easy to use.</p>
+    ),
+    image: "/boarding.png",
+    liveUrl: "https://www.figma.com/design/GdqneN1yQYZOweZmi2Broo/Control-freaks?node-id=4-3&t=owdOib4NWhLOSpaI-1",
   }
 ];
 
 export default function Projects() {
   return (
-    <section id="projects">
+    <section id="projects" className="pt-5 md:pt-8 lg:pt-10">
       <div className="mx-auto px-5 md:px-10 lg:px-5 xl:px-10 overflow-hidden">
         <h2
-          className="text-[clamp(1.6rem,4vw,2.6rem)] mb-10 font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
+          className="text-[clamp(1.6rem,4vw,2.6rem)] pb-15 font-semibold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent"
         >
           Projects
         </h2>
 
         <div className="flex justify-center items-center w-full">
-          <CardStack items={CARDS} className="max-w-7xl w-full" />
+          <ProjectsCardStack items={CARDS} className="max-w-7xl w-full" />
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     setIsLoading(false);
     setTimeout(() => {
       setShowContent(true);
-    }, 100);
+    }, 50);
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     <>
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <div 
-        className={`transition-opacity duration-500 ${
+        className={`transition-opacity duration-700 ${
           showContent ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ pointerEvents: showContent ? 'auto' : 'none' }}
