@@ -29,7 +29,7 @@ const CARDS = [
 			"Participated in InnovateX University Edition. Developed algorithms to detect supermarket anomalies using sensor data and provided insights through a dashboard for shopkeepers. We were able to reach the finals",
 		content:
 			"Participated in InnovateX University Edition, an algorithm coding and web development competition organized by Zebra Technologies. It consisted of two stages: a quiz round, where we answered 10 MCQs and advanced to the finals among 200 participants, and in the finals, we developed algorithms to detect anomalies in supermarkets based on sensor data, such as scan avoidance, weight discrepancies, and long queues. We also created a dashboard for shopkeepers to visualize these anomalies and make operational decisions.This was a different experience because, although we were familiar with web development, it was a challenge to implement algorithms to solve real-world problems. As software engineers, we must also be problem solvers. Even though we didn’t win any places, the experience was exciting.",
-		image: "/innovatex.jpeg",
+		image: "/innovatex.jpg",
 		award: "Finalists",
 	},
 	{

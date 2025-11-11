@@ -9,7 +9,7 @@ export default function Stats() {
           <IconCode className="h-8 w-8 text-indigo-400" />
         </div>
         <div className="stat-title text-xs sm:text-sm tracking-wide">
-          Projects
+          <p className="text-white">Projects</p>
         </div>
         <div className="stat-value text-lg sm:text-2xl">
           <CountUp
@@ -28,7 +28,7 @@ export default function Stats() {
           <IconTrophy className="h-8 w-8 text-yellow-400" />
         </div>
         <div className="stat-title text-xs sm:text-sm tracking-wide">
-          Awards
+          <p className="text-white">Awards</p>
         </div>
         <div className="stat-value text-lg sm:text-2xl">
           <CountUp
@@ -47,7 +47,7 @@ export default function Stats() {
           <IconCalendarStats className="h-8 w-8 text-rose-400" />
         </div>
         <div className="stat-title text-xs sm:text-sm tracking-wide">
-          Years of Programming
+          <p className="text-white">Years of Programming</p>
         </div>
         <div className="stat-value text-lg sm:text-2xl">
           <CountUp

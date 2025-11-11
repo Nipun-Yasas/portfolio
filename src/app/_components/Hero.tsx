@@ -103,8 +103,8 @@ export default function Hero() {
                   await new Promise((resolve) => setTimeout(resolve, 800));
 
                   const link = document.createElement("a");
-                  link.href = "/Nipun - CV.pdf";
-                  link.download = "Nipun - CV.pdf";
+                  link.href = "/Nipun_Bandara_CV.pdf";
+                  link.download = "Nipun_Bandara_CV.pdf";
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
