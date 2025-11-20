@@ -28,7 +28,6 @@ export default function ScrollProgressBar() {
 
   return (
     <div
-      aria-hidden="true"
       className="fixed right-0 bg-transparent top-0 h-screen w-1.5 rounded-full bg-neutral-800/40 overflow-hidden z-[200] pointer-events-none"
     >
       <motion.div

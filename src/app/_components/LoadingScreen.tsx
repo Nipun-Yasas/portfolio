@@ -1,65 +1,68 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import LightRays from './helper/LightRays';
+import { useEffect, useState } from "react";
+import { GridScan } from "./helper/GridScan";
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
 }
 
-export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
-  const [isVisible, setIsVisible] = useState(true);
+export default function LoadingScreen({
+  onLoadingComplete,
+}: LoadingScreenProps) {
+
+  const [isMounted, setIsMounted] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(false);
       setTimeout(() => {
         onLoadingComplete();
-      }, 300); 
-    }, 800);
+        setIsMounted(false);
+      }, 300);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
 
-  if (!isVisible) {
-    return (
-      <div className="fixed inset-0 bg-bgcolor flex items-center justify-center z-[9999] opacity-0 pointer-events-none transition-opacity duration-300">
-        <div className="absolute inset-0">
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#00ffff"
-            raysSpeed={1.5}
-            lightSpread={0.8}
-            rayLength={1.2}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0.1}
-            distortion={0.05}
-            className="w-full h-full"
-          />
-        </div>
-        <div className="loader-custom relative z-10"></div>
-      </div>
-    );
-  }
+  if (!isMounted) return null;
 
   return (
-    <div className="fixed inset-0 bg-bgcolor flex items-center justify-center z-[9999] transition-opacity duration-300">
+    <div
+      className="fixed inset-0 bg-bgcolor flex items-center justify-center z-[9999] transition-opacity duration-300"
+    >
       <div className="absolute inset-0">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#00ffff"
-          raysSpeed={1.5}
-          lightSpread={0.8}
-          rayLength={1.2}
-          followMouse={true}
-          mouseInfluence={0.1}
-          noiseAmount={0.1}
-          distortion={0.05}
-          className="w-full h-full"
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#392e4e"
+          gridScale={0.1}
+          scanColor="#FF9FFC"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
         />
       </div>
-      <div className="loader-custom relative z-10"></div>
+      <div className="relative z-10">
+        <div className="loader">
+          <svg viewBox="0 0 80 80">
+            <circle r="32" cy="40" cx="40" id="test"></circle>
+          </svg>
+        </div>
+
+        <div className="loader triangle">
+          <svg viewBox="0 0 86 80">
+            <polygon points="43 8 79 72 7 72"></polygon>
+          </svg>
+        </div>
+
+        <div className="loader">
+          <svg viewBox="0 0 80 80">
+            <rect height="64" width="64" y="8" x="8"></rect>
+          </svg>
+        </div>
+      </div>
     </div>
   );
 }
