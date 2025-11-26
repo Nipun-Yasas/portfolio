@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 
 import Hyperspeed from "./helper/Hyperspeed";
+import FloatingLines from "./helper/FloatingLines";
+import ColorBends from "./helper/ColorBends";
 import Nav from "./Nav";
 import SplitText from "./SplitText";
 import LayoutTextFlip from "./helper/LayoutTextFlip";
@@ -11,45 +13,18 @@ import ProfileCard from "./helper/ProfileCard";
 export default function Hero() {
   return (
     <section id="about" className="relative w-full ">
-      <div className="absolute overflow-hidden inset-0 w-full h-full pointer-events-none">
-        <Hyperspeed
-          effectOptions={{
-            onSpeedUp: () => { },
-            onSlowDown: () => { },
-            distortion: 'turbulentDistortion',
-            length: 400,
-            roadWidth: 10,
-            islandWidth: 2,
-            lanesPerRoad: 3,
-            fov: 90,
-            fovSpeedUp: 150,
-            speedUp: 2,
-            carLightsFade: 0.4,
-            totalSideLightSticks: 20,
-            lightPairsPerRoadWay: 40,
-            shoulderLinesWidthPercentage: 0.05,
-            brokenLinesWidthPercentage: 0.1,
-            brokenLinesLengthPercentage: 0.5,
-            lightStickWidth: [0.12, 0.5],
-            lightStickHeight: [1.3, 1.7],
-            movingAwaySpeed: [60, 80],
-            movingCloserSpeed: [-120, -160],
-            carLightsLength: [400 * 0.03, 400 * 0.2],
-            carLightsRadius: [0.05, 0.14],
-            carWidthPercentage: [0.3, 0.5],
-            carShiftX: [-0.8, 0.8],
-            carFloorSeparation: [0, 5],
-            colors: {
-              roadColor: 0x080808,
-              islandColor: 0x0a0a0a,
-              background: 0x000000,
-              shoulderLines: 0x131318,
-              brokenLines: 0x131318,
-              leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-              rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-              sticks: 0x03b3c3
-            },
-          }}
+      <div className="absolute overflow-hidden inset-0 w-full h-[100vh] pointer-events-none">
+        <ColorBends
+          colors={[]}
+          rotation={0}
+          speed={0.2}
+          scale={1}
+          frequency={1}
+          warpStrength={1}
+          mouseInfluence={1}
+          parallax={0.5}
+          noise={0.1}
+          transparent
         />
       </div>
 
@@ -84,7 +59,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="w-full max-w-2xl text-[0.9rem] sm:text-[0.95rem] md:text-base leading-relaxed text-neutral-200/90">
+            <p className="w-full max-w-2xl text-[0.9rem] sm:text-[0.95rem] md:text-base leading-relaxed text-white">
               A 3rd-year undergraduate at the University of Moratuwa with a
               strong interest in Artificial Intelligence, Machine Learning, Data
               Science, and Web Development. I enjoy exploring new technologies
@@ -101,7 +76,6 @@ export default function Hero() {
               <Button
                 onClick={async () => {
                   await new Promise((resolve) => setTimeout(resolve, 800));
-
                   const link = document.createElement("a");
                   link.href = "/Nipun_Bandara_CV.pdf";
                   link.download = "Nipun_Bandara_CV.pdf";
@@ -116,19 +90,15 @@ export default function Hero() {
           </div>
 
           <div className="flex justify-center lg:justify-end lg:col-span-5 xl:col-span-5 order-0 lg:order-none">
-            <div className="w-full max-w-xs sm:max-w-sm md:max-w-md">
-              <ProfileCard
-                name="Nipun Yasas"
-                title="3rd Year IT Undergraduate"
-                avatarUrl="/profile.png"
-                iconUrl="/iconpattern.png"
-                grainUrl="/grain.webp"
-                behind-gradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(266, 100%, 90%, var(--card-opacity)) 4%, hsla(266, 50%, 80%, calc(var(--card-opacity) * 0.75)) 10%, hsla(266, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%, hsla(266, 0%, 60%, 0) 100%), radial-gradient(35% 52% at 55% 20%, #00ffaac4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #00c1ffff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #c137ffff 0%, #07c6ffff 40%, #07c6ffff 60%, #c137ffff 100%)"
-                inner-gradient="linear-gradient(145deg, #60496e8c 0%, #71C4FF44 100%)"
-                enableTilt
-                enableMobileTilt
-              />
-            </div>
+            <ProfileCard
+              name="Nipun Yasas"
+              title="3rd Year IT Undergraduate"
+              avatarUrl="/profile.png"
+              iconUrl="/iconpattern.png"
+              grainUrl="/grain.webp"
+              enableTilt
+              enableMobileTilt
+            />
           </div>
         </div>
       </div>
