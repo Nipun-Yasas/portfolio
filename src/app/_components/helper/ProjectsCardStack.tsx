@@ -6,6 +6,7 @@ import { FiGithub, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
 
 import ProjectModal from "./ProjectModal";
+import LinkButton from "./LinkButton";
 
 type Card = {
   id: number;
@@ -109,29 +110,21 @@ export const ProjectsCardStack = ({
                 <ProjectModal project={card} />
                 
                 {card.githubUrl && (
-                  <a
+                  <LinkButton
                     href={card.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#6a37fb] to-[#4824a8] hover:from-[#5a27eb] hover:to-[#3814a0] text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 border-none"
+                    icon={<FiGithub size={16} />}
+                    label="Code"
                     onClick={(e) => e.stopPropagation()}
-                  >
-                    <FiGithub size={16} />
-                    <span>Code</span>
-                  </a>
+                  />
                 )}
                 
                 {card.liveUrl && (
-                  <a
+                  <LinkButton
                     href={card.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#6a37fb] to-[#4824a8] hover:from-[#5a27eb] hover:to-[#3814a0] text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 border-none"
+                    icon={<FiExternalLink size={16} />}
+                    label="Demo"
                     onClick={(e) => e.stopPropagation()}
-                  >
-                    <FiExternalLink size={16} />
-                    <span>Demo</span>
-                  </a>
+                  />
                 )}
               </div>
             </div>

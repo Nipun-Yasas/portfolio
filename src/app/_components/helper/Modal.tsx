@@ -57,12 +57,12 @@ export const ModalTrigger = ({
   };
   
   return (
-    <button
-      className={`px-4 py-2 rounded-md text-black dark:text-white text-center relative ${className}`}
+    <div
+      className={`inline-block ${className || ''}`}
       onClick={handleClick}
     >
       {children}
-    </button>
+    </div>
   );
 };
 

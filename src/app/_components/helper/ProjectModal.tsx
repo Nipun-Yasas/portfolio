@@ -8,7 +8,8 @@ import {
   ModalTrigger,
 } from "./Modal";
 
-import { FiGithub, FiExternalLink, FiUser, FiTag } from "react-icons/fi";
+import { FiGithub, FiExternalLink, FiUser, FiTag, FiEye } from "react-icons/fi";
+import LinkButton from "./LinkButton";
 
 type ProjectData = {
   id: number;
@@ -24,8 +25,11 @@ type ProjectData = {
 export default function ProjectModal({ project }: { project: ProjectData }) {
   return (
     <Modal>
-      <ModalTrigger className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#6a37fb] to-[#4824a8] hover:from-[#5a27eb] hover:to-[#3814a0] text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 border-none">
-        View More
+      <ModalTrigger>
+        <LinkButton
+          icon={<FiEye size={16} />}
+          label="More"
+        />
       </ModalTrigger>
       <ModalBody>
         <ModalContent className="w-full">
@@ -76,30 +80,20 @@ export default function ProjectModal({ project }: { project: ProjectData }) {
           <div className="flex items-center justify-between gap-4 pt-1 md:pt-0 lg:pt-0 xl:pt-0">
             <div className="flex items-center gap-4">
               {project.githubUrl && (
-                <>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <FiGithub size={16} />
-                    <span>Code</span>
-                  </a>
-                </>
+                <LinkButton
+                  href={project.githubUrl}
+                  icon={<FiGithub size={16} />}
+                  label="Code"
+                  onClick={(e) => e.stopPropagation()}
+                />
               )}
               {project.liveUrl && (
-                <a
+                <LinkButton
                   href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                  icon={<FiExternalLink size={16} />}
+                  label="Demo"
                   onClick={(e) => e.stopPropagation()}
-                >
-                  <FiExternalLink size={16} />
-                  <span>Demo</span>
-                </a>
+                />
               )}
             </div>
           </div>

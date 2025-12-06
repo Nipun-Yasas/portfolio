@@ -1,67 +1,105 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
 import { Label } from "./helper/Label";
 import { Input } from "./helper/Input";
 import { Textarea } from "./helper/Textarea";
 import Button from "./helper/Button";
 
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must be less than 50 characters")
+    .required("Name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  message: Yup.string()
+    .min(10, "Message must be at least 10 characters")
+    .max(500, "Message must be less than 500 characters")
+    .required("Message is required"),
+});
+
 export default function ContactForm() {
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const formRef = useRef<HTMLFormElement>(null);
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values, { resetForm }) => {
+      setFormStatus('sending');
+      setErrorMessage("");
+
+      try {
+        const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+        const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+        const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+        if (!serviceId || !templateId || !publicKey) {
+          throw new Error("EmailJS configuration is missing. Please check your environment variables.");
+        }
+
+        const templateParams = {
+          name: values.name,
+          email: values.email,
+          message: values.message,
+        };
+
+        await Promise.all([
+          emailjs.send(serviceId, templateId, templateParams, publicKey),
+          new Promise(resolve => setTimeout(resolve, 600))
+        ]);
+
+        setFormStatus('success');
+        resetForm();
+        
+        setTimeout(() => {
+          setFormStatus('idle');
+        }, 2500);
+
+      } catch (error) {
+        console.error("Failed to send email:", error);
+        setFormStatus('error');
+        setErrorMessage(error instanceof Error ? error.message : "Failed to send message. Please try again.");
+        
+        setTimeout(() => {
+          setFormStatus('idle');
+          setErrorMessage("");
+        }, 5000);
+      }
+    },
+  });
 
   const handleButtonClick = async () => {
-    if (!formRef.current) return;
+    // Mark all fields as touched to show validation errors
+    formik.setTouched({
+      name: true,
+      email: true,
+      message: true,
+    });
 
-    if (!formRef.current.checkValidity()) {
-      formRef.current.reportValidity();
-      throw new Error("Please fill in all required fields");
-    }
-
-    setFormStatus('sending');
-    setErrorMessage("");
-
-    try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
-      }
-      await Promise.all([
-        emailjs.sendForm(serviceId, templateId, formRef.current, publicKey),
-        new Promise(resolve => setTimeout(resolve, 600))
-      ]);
-
-      setFormStatus('success');
-      formRef.current.reset();
-      
-      setTimeout(() => {
-        setFormStatus('idle');
-      }, 2500);
-
-    } catch (error) {
-      console.error("Failed to send email:", error);
-      setFormStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : "Failed to send message. Please try again.");
-      
-      setTimeout(() => {
-        setFormStatus('idle');
-        setErrorMessage("");
-      }, 5000);
-      throw error;
+    // Validate the form
+    const errors = await formik.validateForm();
+    
+    // Only submit if there are no validation errors
+    if (Object.keys(errors).length === 0) {
+      formik.handleSubmit();
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+  // Button is disabled if form is invalid, empty, or currently sending
+  const isButtonDisabled = formStatus === 'sending' || !formik.isValid || !formik.dirty;
 
   return (
     <div className="shadow-input w-full max-w-sm lg:px-8 rounded-none bg-bgcolor md:rounded-2xl ">
-      <form ref={formRef} onSubmit={handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="name">Name</Label>
           <Input
@@ -69,9 +107,14 @@ export default function ContactForm() {
             name="name"
             placeholder="Your name"
             type="text"
-            required
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             disabled={formStatus === 'sending'}
           />
+          {formik.touched.name && formik.errors.name && (
+            <p className="text-xs text-red-400 mt-1">{formik.errors.name}</p>
+          )}
         </LabelInputContainer>
 
         <LabelInputContainer className="mb-4">
@@ -81,9 +124,14 @@ export default function ContactForm() {
             name="email"
             placeholder="you@example.com"
             type="email"
-            required
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             disabled={formStatus === 'sending'}
           />
+          {formik.touched.email && formik.errors.email && (
+            <p className="text-xs text-red-400 mt-1">{formik.errors.email}</p>
+          )}
         </LabelInputContainer>
 
         <LabelInputContainer className="mb-6">
@@ -93,9 +141,14 @@ export default function ContactForm() {
             name="message"
             placeholder="Write your message..."
             rows={5}
-            required
+            value={formik.values.message}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             disabled={formStatus === 'sending'}
           />
+          {formik.touched.message && formik.errors.message && (
+            <p className="text-xs text-red-400 mt-1">{formik.errors.message}</p>
+          )}
         </LabelInputContainer>
 
         {formStatus === 'success' && (
@@ -118,9 +171,9 @@ export default function ContactForm() {
           <Button 
             type="button"
             onClick={handleButtonClick}
-            disabled={formStatus === 'sending'}
+            disabled={isButtonDisabled}
           >
-            Send a message
+            {formStatus === 'sending' ? 'Sending...' : 'Send a message'}
           </Button>
         </div>
       </form>

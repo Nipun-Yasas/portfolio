@@ -83,7 +83,7 @@ export default function Button({ className, children, ...props }: ButtonProps) {
       layout
       layoutId="button"
       ref={scope}
-      className={`px-8 py-4 rounded-md border-[2px] border-none bg-slate-950 duration-200 hover:shadow-[4px_4px_0px_theme("colors.blue.400")] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0 active:translate-y-0 active:shadow-[0_0_15px_theme("colors.blue.400")] transition-all ${className}`}
+      className={`px-8 py-4 rounded-md border-[2px] border-none bg-gradient-to-br from-[#241b3d] to-[#003366] duration-200 hover:shadow-[4px_4px_0px_theme("colors.blue.400")] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0 active:translate-y-0 active:shadow-[0_0_15px_theme("colors.blue.400")] transition-all ${className}`}
       {...buttonProps}
       onClick={handleClick}
     >

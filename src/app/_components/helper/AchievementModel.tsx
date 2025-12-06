@@ -8,7 +8,8 @@ import {
   ModalTrigger,
 } from "./Modal";
 
-import { FiAward } from "react-icons/fi";
+import { FiAward, FiEye } from "react-icons/fi";
+import LinkButton from "./LinkButton";
 
 type AchievementData = {
   id: number;
@@ -21,8 +22,11 @@ type AchievementData = {
 export default function AchievementModal({ achievement }: { achievement: AchievementData }) {
   return (
     <Modal>
-      <ModalTrigger className="text-center py-2 px-4 bg-gradient-to-r from-purple-600/90 to-fuchsia-600/90 backdrop-blur-sm rounded-lg text-white text-sm font-medium hover:from-purple-500/90 hover:to-fuchsia-500/90 transition-all duration-200">
-        View More
+      <ModalTrigger>
+        <LinkButton
+          icon={<FiEye size={16} />}
+          label="More"
+        />
       </ModalTrigger>
       <ModalBody>
         <ModalContent className="w-full">

@@ -12,8 +12,8 @@ import ProfileCard from "./helper/ProfileCard";
 
 export default function Hero() {
   return (
-    <section id="about" className="relative w-full ">
-      <div className="absolute overflow-hidden inset-0 w-full h-[100vh] pointer-events-none">
+    <section id="about" className="relative w-full min-h-screen overflow-hidden">
+      <div className="absolute overflow-hidden inset-0 w-full pointer-events-none">
         <ColorBends
           colors={[]}
           rotation={0}
