@@ -1,7 +1,7 @@
+"use client";
+
 import { motion } from "motion/react";
 
-import Hyperspeed from "./helper/Hyperspeed";
-import FloatingLines from "./helper/FloatingLines";
 import ColorBends from "./helper/ColorBends";
 import Nav from "./Nav";
 import SplitText from "./SplitText";
